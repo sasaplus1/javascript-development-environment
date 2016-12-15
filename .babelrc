@@ -1,0 +1,30 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        ["es2015", {"loose": true}],
+        "power-assert"
+      ],
+      "plugins": [
+        "lodash",
+        "transform-es3-member-expression-literals",
+        "transform-es3-property-literals",
+        "transform-undefined-to-void",
+        "transform-strict-mode"
+      ]
+    },
+    "production": {
+      "presets": [
+        ["es2015", {"loose": true}]
+      ],
+      "plugins": [
+        "unassert",
+        "lodash",
+        "transform-es3-member-expression-literals",
+        "transform-es3-property-literals",
+        "transform-undefined-to-void",
+        "transform-strict-mode"
+      ]
+    }
+  }
+}
