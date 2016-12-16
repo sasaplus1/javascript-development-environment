@@ -28,12 +28,12 @@
   "private": true,
   "scripts": {
     "build": "npm run compile && npm run minify",
-    "compile": "npm run webpack -- --output-filename ${npm_package_name}.js",
+    "compile": "npm run webpack",
     "eslint": "eslint",
     "export": "git checkout-index -a -f --prefix",
     "fixpack": "fixpack",
     "lint": "npm run eslint -- .",
-    "minify": "NODE_ENV=production npm run webpack -- --optimize-minimize --output-filename ${npm_package_name}.min.js",
+    "minify": "NODE_ENV=production npm run webpack -- --optimize-minimize",
     "webpack": "webpack --colors --display-error-details --progress"
   }
 }
