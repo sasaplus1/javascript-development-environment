@@ -29,6 +29,7 @@
   "scripts": {
     "build": "npm run compile && npm run minify",
     "compile": "npm run webpack",
+    "develop": "npm run webpack -- --devtool inline-source-map --watch",
     "eslint": "eslint",
     "export": "git checkout-index -a -f --prefix",
     "fixpack": "fixpack",
