@@ -27,31 +27,11 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.css$/,   exclude: /node_modules/, loader: 'style!css!postcss' },
+      { test: /\.s?css$/, exclude: /node_modules/, loader: 'style!css!postcss' },
       { test: /\.js$/,    exclude: /node_modules/, loader: 'babel'             },
       { test: /\.json$/,  exclude: /node_modules/, loader: 'json'              },
       { test: /\.ya?ml$/, exclude: /node_modules/, loader: 'json!yaml'         },
     ],
-  },
-
-  postcss: function(webpackInstance) {
-    return [
-      require('postcss-import').call(global, {
-        addDependencyTo: webpackInstance,
-      }),
-      require('postcss-simple-vars'),
-      require('postcss-nested'),
-      require('autoprefixer').call(global, {
-        browsers: [
-          'IE 8',
-          'last 2 versions',
-          // 'iOS >= 6',
-          // 'Android >= 4',
-          // 'last 3 ChromeAndroid versions',
-        ],
-      }),
-      require('cssnano'),
-    ];
   },
 
   // externals: {
