@@ -2,7 +2,6 @@
 
 module.exports = function(ctx) {
   return {
-    syntax: 'postcss-scss',
     plugins: {
       'postcss-strip-inline-comments': {
       },
@@ -20,5 +19,6 @@ module.exports = function(ctx) {
       'cssnano': {
       },
     },
+    syntax: 'postcss-scss',
   };
 };
