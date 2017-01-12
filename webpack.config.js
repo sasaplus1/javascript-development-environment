@@ -51,6 +51,7 @@ module.exports = {
       '.json',
       '.yml',
       '.yaml',
+      '.scss',
       '.css',
     ],
     modulesDirectories: [
