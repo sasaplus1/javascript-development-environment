@@ -11,7 +11,7 @@ module.exports = {
   target: 'web',
 
   // entry: {
-  //   index: `${__dirname}/src/index.js`
+  //   index: `${__dirname}/src/index.js`,
   // },
 
   output: {
