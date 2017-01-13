@@ -2,7 +2,8 @@
 
 const path = require('path');
 
-const webpack = require('webpack');
+const uglifySaveLicense = require('uglify-save-license'),
+      webpack = require('webpack');
 
 module.exports = {
 
@@ -76,7 +77,15 @@ module.exports = {
           ],
         },
         output: {
-          comments: require('uglify-save-license'),
+          comments: function(astNode, comment) {
+            const isComment = uglifySaveLicense(astNode, comment);
+
+            if (isComment) {
+              console.log(comment.value);
+            }
+
+            return isComment;
+          },
         },
       }),
     ] : [
