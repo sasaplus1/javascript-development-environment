@@ -27,10 +27,10 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.s?css$/, exclude: /node_modules/, loader: 'style!css!postcss' },
-      { test: /\.js$/,    exclude: /node_modules/, loader: 'babel'             },
-      { test: /\.json$/,  exclude: /node_modules/, loader: 'json'              },
-      { test: /\.ya?ml$/, exclude: /node_modules/, loader: 'json!yaml'         },
+      { test: /\.s?css$/, exclude: /node_modules/, loader: 'style!css!postcss!sass' },
+      { test: /\.js$/,    exclude: /node_modules/, loader: 'babel'                  },
+      { test: /\.json$/,  exclude: /node_modules/, loader: 'json'                   },
+      { test: /\.ya?ml$/, exclude: /node_modules/, loader: 'json!yaml'              },
     ],
   },
 

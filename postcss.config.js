@@ -3,10 +3,6 @@
 module.exports = function(ctx) {
   return {
     plugins: {
-      'postcss-strip-inline-comments': {
-      },
-      'precss': {
-      },
       'autoprefixer': {
         browsers: [
           'last 2 versions',
