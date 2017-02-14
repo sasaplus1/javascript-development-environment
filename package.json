@@ -18,7 +18,7 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "uglify-save-license": "^0.4.1",
-    "webpack": "^1.14.0",
+    "webpack": "^2.2.1",
     "yaml-loader": "^0.4.0"
   },
   "private": true,
@@ -30,7 +30,7 @@
     "export": "git archive HEAD | tar x - -C",
     "fixpack": "fixpack",
     "lint": "npm run eslint -- .",
-    "minify": "NODE_ENV=production npm run webpack -- --optimize-minimize",
+    "minify": "npm run webpack -- --optimize-minimize",
     "webpack": "webpack --colors --display-error-details --progress"
   }
 }

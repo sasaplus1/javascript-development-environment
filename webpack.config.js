@@ -21,16 +21,33 @@ module.exports = {
     chunkFilename: 'chunk-[id]-[hash].js',
   },
 
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
-  },
-
   module: {
-    loaders: [
-      { test: /\.s?css$/, exclude: /node_modules/, loader: 'style!css!postcss!sass' },
-      { test: /\.js$/,    exclude: /node_modules/, loader: 'babel'                  },
-      { test: /\.json$/,  exclude: /node_modules/, loader: 'json'                   },
-      { test: /\.ya?ml$/, exclude: /node_modules/, loader: 'json!yaml'              },
+    rules: [
+      {
+        exclude: /node_modules/,
+        test: /\.s?css$/,
+        use: [
+          { loader: 'style-loader'   },
+          { loader: 'css-loader'     },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader'    },
+        ],
+      },
+      {
+        exclude: /node_modules/,
+        test: /\.js$/,
+        use: [
+          { loader: 'babel-loader' },
+        ],
+      },
+      {
+        exclude: /node_modules/,
+        test: /\.ya?ml$/,
+        use: [
+          { loader: 'json-loader' },
+          { loader: 'yaml-loader' },
+        ],
+      },
     ],
   },
 
@@ -46,7 +63,6 @@ module.exports = {
 
   resolve: {
     extensions: [
-      '',
       '.js',
       '.json',
       '.yml',
@@ -54,16 +70,11 @@ module.exports = {
       '.scss',
       '.css',
     ],
-    modulesDirectories: [
-      'node_modules',
-    ],
   },
 
   plugins: [
-    new webpack.NoErrorsPlugin,
+    new webpack.NoEmitOnErrorsPlugin,
     new webpack.IgnorePlugin(/vertx/),
-    new webpack.optimize.OccurenceOrderPlugin,
-    new webpack.optimize.DedupePlugin,
     new webpack.optimize.AggressiveMergingPlugin,
   ].concat(
     (process.argv.some(arg => /^(?:-p|--optimize-minimize)$/.test(arg))) ? [
@@ -95,12 +106,13 @@ module.exports = {
       }),
     ]
   ).concat([
-    new webpack.BannerPlugin([
-      '@license Copyright(c) 2016 sasa+1',
-      'Released under the MIT license.',
-    ].join('\n'), {
-      raw: false,
+    new webpack.BannerPlugin({
+      banner: [
+        '@license Copyright(c) 2016 sasa+1',
+        'Released under the MIT license.',
+      ].join('\n'),
       entryOnly: true,
+      raw: false,
     }),
   ]),
 
