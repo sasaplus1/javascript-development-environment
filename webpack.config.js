@@ -92,7 +92,7 @@ module.exports = {
   ).concat([
     new webpack.BannerPlugin({
       banner: [
-        '@license Copyright(c) 2016 sasa+1',
+        '@license Copyright(c) 2017 sasa+1',
         'Released under the MIT license.',
       ].join('\n'),
       entryOnly: true,
