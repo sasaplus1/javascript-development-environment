@@ -27,19 +27,19 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
+        test: /\.js$/,
+        use: [
+          { loader: 'babel-loader' },
+        ],
+      },
+      {
+        exclude: /node_modules/,
         test: /\.s[ac]ss$/,
         use: [
           { loader: 'style-loader'   },
           { loader: 'css-loader'     },
           { loader: 'postcss-loader' },
           { loader: 'sass-loader'    },
-        ],
-      },
-      {
-        exclude: /node_modules/,
-        test: /\.js$/,
-        use: [
-          { loader: 'babel-loader' },
         ],
       },
       {
