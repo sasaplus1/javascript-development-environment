@@ -4,6 +4,8 @@ const path = require('path');
 
 const webpack = require('webpack');
 
+const uglifySaveLicense = require('uglify-save-license');
+
 module.exports = {
 
   context: __dirname,
@@ -76,33 +78,16 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin,
     new webpack.optimize.AggressiveMergingPlugin,
   ].concat(
-    (process.argv.some(arg => /^(?:-p|--optimize-minimize)$/.test(arg))) ? [
-      // new webpack.DefinePlugin(
-      // ),
+    (process.argv.some(
+      (arg) => /^(?:-p|--optimize-minimize)$/.test(arg)
+    )) ? [
       new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          pure_funcs: [
-            'log',
-          ],
-        },
         output: {
-          comments: require('uglify-save-license'),
+          comments: uglifySaveLicense,
         },
       }),
     ] : [
-      new webpack.DefinePlugin({
-        log: function() {
-          if (typeof console !== 'undefined') {
-            if (typeof console.log === 'object') {
-              // for IE8 and IE9
-              Function.prototype.apply.call(console.log, console, arguments);
-            } else {
-              // for other browsers
-              console.log.apply(console, arguments);
-            }
-          }
-        },
-      }),
+      /* none */
     ]
   ).concat([
     new webpack.BannerPlugin({
