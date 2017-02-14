@@ -25,7 +25,7 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
-        test: /\.s?css$/,
+        test: /\.s[ac]ss$/,
         use: [
           { loader: 'style-loader'   },
           { loader: 'css-loader'     },
@@ -68,7 +68,7 @@ module.exports = {
       '.yml',
       '.yaml',
       '.scss',
-      '.css',
+      '.sass',
     ],
   },
 
