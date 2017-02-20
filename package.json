@@ -30,7 +30,7 @@
     "export": "git archive HEAD | tar x - -C",
     "fixpack": "fixpack",
     "lint": "npm run eslint -- .",
-    "minify": "npm run webpack -- --optimize-minimize",
+    "minify": "NODE_ENV=production npm run webpack -- --optimize-minimize",
     "webpack": "webpack --colors --display-error-details --progress"
   }
 }
