@@ -50,19 +50,6 @@ module.exports = {
           { loader: 'yaml-loader' },
         ],
       },
-      {
-        enforce: 'pre',
-        exclude: /node_modules/,
-        test: /\.js$/,
-        use: [
-          {
-            loader: 'eslint-loader',
-            options: {
-              emitWarning: true,
-            },
-          },
-        ],
-      }
     ],
   },
 
